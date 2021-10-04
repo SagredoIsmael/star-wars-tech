@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import { store } from './store/config'
 import styled from 'styled-components'
+import people_icon_1 from './assets/people_icon_1.png'
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,6 +16,6 @@ const IconStyled = styled.img`
 export default () =>
   <Provider store={store}>
     <Wrapper>
-      
+      <IconStyled src={people_icon_1} />
     </Wrapper>
   </Provider>
