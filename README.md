@@ -9,6 +9,7 @@ Project developed with React JS to enjoy with Star Wars information.
 ## Contents
 
 - [Requirements](#-requirements)
+- [Dependencies](#-dependencies)
 - [Building Star Wars Tech app](#-building-Star-Wars-Tech-app)
 - [License](#-license)
 
@@ -24,7 +25,14 @@ Project developed with React JS to enjoy with Star Wars information.
 *  Node.js (Version 8 or newer)
 
 
+## 📖 Dependencies
 
+    *  React (https://es.reactjs.org/)
+    *  Lodash -> JS utility library (https://lodash.com/)
+    *  Redux -> Handle app state (https://es.redux.js.org/)
+    *  Redux-logger -> print for console the state app (https://github.com/LogRocket/redux-logger)
+    *  Material UI (with emotion) -> material UI components (https://mui.com/)
+    *  Styled-components -> bits de ES6 y CSS para estilizar (https://styled-components.com/)
 
 ## 🎉 Building Star Wars Tech app
 
@@ -49,6 +57,7 @@ Project developed with React JS to enjoy with Star Wars information.
 
 3.  Open http://localhost:3000 to view it in the browser.
 
+4. As a tip, in developer mode you can view each of the console actions issued by redux. This will help you debug and see the status of the application at any time.
 
 
 ## 📄 License
