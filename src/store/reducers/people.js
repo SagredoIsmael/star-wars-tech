@@ -13,7 +13,8 @@ export default (state = initialState, action) => {
     case SET_DATA_PEOPLE:
       return {
         ...state,
-        list: action.data.results
+        list: action.data.results,
+        count: action.data.count
       }
 
     case ERROR_DATA_PEOPLE:

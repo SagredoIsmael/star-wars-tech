@@ -4,6 +4,7 @@ import people_icon_1 from '../assets/people_icon_1.png'
 import LoadingButton from '@mui/lab/LoadingButton'
 import theme from '../utils/theme'
 import isArray from 'lodash/isArray'
+import PeopleList from '../store/containers/peopleList'
 
 const Wrapper = styled.div`
   display:flex;
@@ -20,9 +21,13 @@ const ButtonStyled = styled(LoadingButton)`
   background-color: ${theme.primaryColor};
 `
 
-export default ({ fetchPeople, people }) => {
+export default ({ fetchPeople, people, error }) => {
   const [isLoading, setIsLoading] = useState(false)
   const hasPeople = !isArray(people)
+  
+  if (error)
+    return alert(error)
+
   return (
     < Wrapper >
       <IconStyled src={people_icon_1} />
@@ -34,12 +39,10 @@ export default ({ fetchPeople, people }) => {
               fetchPeople()
             }}
             loading={isLoading}
-          >Ver todos los personajes de Star Wars
+          >See all Star Wars people
           </ButtonStyled>
           :
-          <ButtonStyled
-          >Ya están cargados
-          </ButtonStyled>
+          <PeopleList/>
       }
     </Wrapper >
   )

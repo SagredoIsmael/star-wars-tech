@@ -8,6 +8,11 @@ export const getListPeople = pipe(
     get('list')
 )
 
+export const getCountPeople = pipe(
+    getPeople,
+    get('count')
+)
+
 export const getErrorPeople = pipe(
     getPeople,
     get('error')
