@@ -5,7 +5,6 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import space_craft_icon from '../assets/space_craft_icon.png'
 
 const Wrapper = styled.div`
   display:flex;
@@ -19,7 +18,6 @@ const IconStyled = styled.img`
 
 export default ({ selectedFilm }) =>
     <Wrapper>
-        {selectedFilm && <IconStyled src={space_craft_icon} />}
         {selectedFilm && 
         <Card >
             <CardContent>

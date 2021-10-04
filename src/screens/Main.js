@@ -1,28 +1,24 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import people_icon_1 from '../assets/people_icon_1.png'
+import people_icon_2 from '../assets/people_icon_2.png'
+import space_craft_icon from '../assets/space_craft_icon.png'
 import LoadingButton from '@mui/lab/LoadingButton'
-import theme from '../utils/theme'
 import isArray from 'lodash/isArray'
 import PeopleList from '../store/containers/peopleList'
 import FilmDetail from '../store/containers/filmDetail'
 
 const GeneralWrapper = styled.div`
   display:flex;
-  flex-direction: column;
-`
-const ListWrapperRow = styled.div`
-  display:flex;
   flex-direction: row;
 `
+const ImagesWrapper = styled.div`
+  display:flex;
+  flex-direction: column;
+  `
 const IconStyled = styled.img`
   margin: 2rem;
-  height: 50rem;
-`
-const ButtonStyled = styled(LoadingButton)`
-  align-self: center;
-  color: ${theme.secondaryColor};
-  background-color: ${theme.primaryColor};
+  width: 20rem;
 `
 
 export default ({ fetchPeople, people, error }) => {
@@ -34,22 +30,25 @@ export default ({ fetchPeople, people, error }) => {
 
   return (
     <GeneralWrapper>
-      < ListWrapperRow >
+      <ImagesWrapper>
         <IconStyled src={people_icon_1} />
-        {
-          hasPeople ?
-            <ButtonStyled
-              onClick={() => {
-                setIsLoading(true)
-                fetchPeople()
-              }}
-              loading={isLoading}
-            >See all Star Wars people
-            </ButtonStyled>
-            :
-            <PeopleList />
-        }
-      </ListWrapperRow >
+        <IconStyled src={space_craft_icon} />
+        <IconStyled src={people_icon_2} />
+      </ImagesWrapper>
+      {
+        hasPeople ?
+          <LoadingButton
+            style={{ fontSize: '2rem' }}
+            onClick={() => {
+              setIsLoading(true)
+              fetchPeople()
+            }}
+            loading={isLoading}
+          >See all Star Wars people
+          </LoadingButton>
+          :
+          <PeopleList />
+      }
       <FilmDetail />
     </GeneralWrapper>
 
