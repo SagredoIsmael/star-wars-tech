@@ -1,3 +1,5 @@
 /*Actions user*/
 export const SET_DATA_PEOPLE = 'SET_DATA_PEOPLE'
 export const ERROR_DATA_PEOPLE = 'ERROR_DATA_PEOPLE'
+export const REQUEST_PEOPLE = 'REQUEST_PEOPLE'
+export const SET_PEOPLE_SELECTED = 'SET_PEOPLE_SELECTED'

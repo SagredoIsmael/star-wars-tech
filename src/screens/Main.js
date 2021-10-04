@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import people_icon_1 from '../assets/people_icon_1.png'
-import Button from '@mui/material/Button'
+import LoadingButton from '@mui/lab/LoadingButton'
 import theme from '../utils/theme'
+import isArray from 'lodash/isArray'
 
 const Wrapper = styled.div`
   display:flex;
@@ -13,15 +14,39 @@ const IconStyled = styled.img`
   width: 30rem;
 `
 
-const ButtonStyled = styled(Button)`
+const ButtonStyled = styled(LoadingButton)`
   align-self: center;
   color: ${theme.secondaryColor};
   background-color: ${theme.primaryColor};
- 
 `
 
-export default () =>
-  <Wrapper>
-    <IconStyled src={people_icon_1} />
-    <ButtonStyled variant="text">Ver todos los personajes de Star Wars</ButtonStyled>
-  </Wrapper >
+export default ({ fetchPeople, people }) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const hasPeople = !isArray(people)
+  return (
+    < Wrapper >
+      <IconStyled src={people_icon_1} />
+      {
+        hasPeople ?
+          <ButtonStyled
+            onClick={() => {
+              setIsLoading(true)
+              fetchPeople()
+            }}
+            loading={isLoading}
+          >Ver todos los personajes de Star Wars
+          </ButtonStyled>
+          :
+          <ButtonStyled
+          >Ya están cargados
+          </ButtonStyled>
+      }
+    </Wrapper >
+  )
+}
+
+
+
+
+
+

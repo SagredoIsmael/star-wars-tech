@@ -1,9 +1,9 @@
-
-import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE } from '../actions/types'
+import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE, SET_PEOPLE_SELECTED } from '../actions/types'
 
 const initialState = {
   list: null,
   error: null,
+  selected: null
 }
 
 export default (state = initialState, action) => {
@@ -13,9 +13,8 @@ export default (state = initialState, action) => {
     case SET_DATA_PEOPLE:
       return {
         ...state,
-        list: action.data.value
+        list: action.data.results
       }
-
 
     case ERROR_DATA_PEOPLE:
       return {
@@ -23,6 +22,11 @@ export default (state = initialState, action) => {
         error: action.error
       }
 
+    case SET_PEOPLE_SELECTED:
+      return {
+        ...state,
+        selected: action.selected
+      }
 
     default:
       return state
