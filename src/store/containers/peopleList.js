@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { compose } from 'redux'
 import PeopleList from '../../components/PeopleList'
-import { setSelectedFilm } from '../actions/film'
+import { fetchFilm } from '../actions/film'
 import { getListPeople, getCountPeople } from '../selectors/people'
 
 const mapStateToProps = state => (
@@ -12,7 +12,7 @@ const mapStateToProps = state => (
 )
 
 const mapDispatchToProps ={ 
-    setSelectedFilm
+    fetchFilm
 }
 
 export default compose(
