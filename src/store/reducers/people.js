@@ -1,4 +1,4 @@
-import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE, SET_PEOPLE_SELECTED } from '../actions/types'
+import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE } from '../actions/types'
 
 const initialState = {
   list: null,
@@ -21,12 +21,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.error
-      }
-
-    case SET_PEOPLE_SELECTED:
-      return {
-        ...state,
-        selected: action.selected
       }
 
     default:

@@ -1,4 +1,4 @@
-import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE, REQUEST_PEOPLE, SET_PEOPLE_SELECTED } from './types'
+import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE, REQUEST_PEOPLE } from './types'
 import constants from '../../utils/constans'
 
 const requestPeople = () => ({
@@ -14,11 +14,6 @@ const setDataPeople = data => ({
   type: SET_DATA_PEOPLE,
   data
 })
-
-export const setSelected = people => ({
-    type: SET_PEOPLE_SELECTED,
-    people
-  })
 
 export const fetchPeople = () => dispatch => {
   dispatch(requestPeople())

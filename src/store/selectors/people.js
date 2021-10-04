@@ -17,8 +17,3 @@ export const getErrorPeople = pipe(
     getPeople,
     get('error')
 )
-
-export const getSelectedPeople = pipe(
-    getPeople,
-    get('selected')
-)

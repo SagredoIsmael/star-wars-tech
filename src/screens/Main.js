@@ -5,16 +5,20 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import theme from '../utils/theme'
 import isArray from 'lodash/isArray'
 import PeopleList from '../store/containers/peopleList'
+import FilmDetail from '../store/containers/filmDetail'
 
-const Wrapper = styled.div`
+const GeneralWrapper = styled.div`
+  display:flex;
+  flex-direction: column;
+`
+const ListWrapperRow = styled.div`
   display:flex;
   flex-direction: row;
 `
 const IconStyled = styled.img`
   margin: 2rem;
-  width: 30rem;
+  width: 24em;
 `
-
 const ButtonStyled = styled(LoadingButton)`
   align-self: center;
   color: ${theme.secondaryColor};
@@ -24,27 +28,31 @@ const ButtonStyled = styled(LoadingButton)`
 export default ({ fetchPeople, people, error }) => {
   const [isLoading, setIsLoading] = useState(false)
   const hasPeople = !isArray(people)
-  
+
   if (error)
     return alert(error)
 
   return (
-    < Wrapper >
-      <IconStyled src={people_icon_1} />
-      {
-        hasPeople ?
-          <ButtonStyled
-            onClick={() => {
-              setIsLoading(true)
-              fetchPeople()
-            }}
-            loading={isLoading}
-          >See all Star Wars people
-          </ButtonStyled>
-          :
-          <PeopleList/>
-      }
-    </Wrapper >
+    <GeneralWrapper>
+      < ListWrapperRow >
+        <IconStyled src={people_icon_1} />
+        {
+          hasPeople ?
+            <ButtonStyled
+              onClick={() => {
+                setIsLoading(true)
+                fetchPeople()
+              }}
+              loading={isLoading}
+            >See all Star Wars people
+            </ButtonStyled>
+            :
+            <PeopleList />
+        }
+      </ListWrapperRow >
+      <FilmDetail />
+    </GeneralWrapper>
+
   )
 }
 
