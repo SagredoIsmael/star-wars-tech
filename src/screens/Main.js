@@ -17,7 +17,7 @@ const ListWrapperRow = styled.div`
 `
 const IconStyled = styled.img`
   margin: 2rem;
-  width: 24em;
+  height: 50rem;
 `
 const ButtonStyled = styled(LoadingButton)`
   align-self: center;
