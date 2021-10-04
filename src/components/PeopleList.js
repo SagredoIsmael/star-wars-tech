@@ -25,7 +25,7 @@ const FilmsWrapper = styled.div`
 const AvatarWrapper = styled(Avatar)`
   margin:0.5rem;
 `
-export default ({ people, setSelectedFilm, count }) =>
+export default ({ people, fetchFilm, count }) =>
     <Wrapper>
         <TableContainer component={Paper}>
             <Table>
@@ -51,9 +51,9 @@ export default ({ people, setSelectedFilm, count }) =>
                             <TableCell>{item.mass}</TableCell>
                             <TableCell>
                                 <FilmsWrapper>
-                                    {item.films.map((film) => (
-                                        <AvatarWrapper {...stringAvatar('Film ' + film.substr(film.length - 2))}
-                                            onClick={() => setSelectedFilm(film)} />
+                                    {item.films.map((urlFilm) => (
+                                        <AvatarWrapper {...stringAvatar('Film ' + urlFilm.substr(urlFilm.length - 2))}
+                                            onClick={() => fetchFilm(urlFilm)} />
                                     ))}
                                 </FilmsWrapper>
                             </TableCell>

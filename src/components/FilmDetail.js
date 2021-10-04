@@ -11,29 +11,21 @@ const Wrapper = styled.div`
   margin: 3rem;
 `
 
-const IconStyled = styled.img`
-  margin: 2rem;
-  width: 20em;
-`
-
 export default ({ selectedFilm }) =>
     <Wrapper>
         {selectedFilm && 
         <Card >
             <CardContent>
-                <Typography color="text.secondary" gutterBottom>
-                    Films of {selectedFilm.name}
+                <Typography color="text.primary" gutterBottom>
+                    {selectedFilm.title}
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    adjective
+                {selectedFilm.director}
                 </Typography>
                 <Typography variant="body2">
-                    well meaning and kindly.well meaning and kindly.
+                    {selectedFilm.opening_crawl}
                 </Typography>
             </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
         </Card>}
     </Wrapper>
