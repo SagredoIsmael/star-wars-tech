@@ -17,3 +17,8 @@ export const getErrorPeople = pipe(
     getPeople,
     get('error')
 )
+
+export const getCurrentPage = pipe(
+    getPeople,
+    get('currentPage')
+)

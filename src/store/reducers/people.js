@@ -1,9 +1,10 @@
-import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE } from '../actions/types'
+import { SET_DATA_PEOPLE, ERROR_DATA_PEOPLE, UPDATE_PAGE_PEOPLE_LIST } from '../actions/types'
 
 const initialState = {
   list: null,
   error: null,
-  selected: null
+  selected: null,
+  currentPage: 1
 }
 
 export default (state = initialState, action) => {
@@ -14,13 +15,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         list: action.data.results,
-        count: action.data.count
+        count: action.data.count,
       }
 
     case ERROR_DATA_PEOPLE:
       return {
         ...state,
         error: action.error
+      }
+
+    case UPDATE_PAGE_PEOPLE_LIST:
+      return {
+        ...state,
+        currentPage: action.page
       }
 
     default:

@@ -25,7 +25,7 @@ const FilmsWrapper = styled.div`
 const AvatarWrapper = styled(Avatar)`
   margin:0.5rem;
 `
-export default ({ people, fetchFilm, count }) =>
+export default ({ people, fetchFilm, fetchPeople, count, currentPage, updatePageList }) =>
     <Wrapper>
         <TableContainer component={Paper}>
             <Table>
@@ -53,7 +53,8 @@ export default ({ people, fetchFilm, count }) =>
                                 <FilmsWrapper>
                                     {item.films.map((urlFilm) => (
                                         <AvatarWrapper {...stringAvatar('Film ' + urlFilm.substr(urlFilm.length - 2))}
-                                            onClick={() => fetchFilm(urlFilm)} />
+                                            onClick={() => fetchFilm(urlFilm)} 
+                                            key={urlFilm}/>
                                     ))}
                                 </FilmsWrapper>
                             </TableCell>
@@ -69,10 +70,11 @@ export default ({ people, fetchFilm, count }) =>
                             colSpan={30}
                             count={count}
                             rowsPerPage={10}
-                            page={0}
-                            onPageChange={console.log('@@page change')}
-                            onRowsPerPageChange={console.log('@onRowsPerPageChange')}
-                            ActionsComponent={console.log('@ActionsComponent')}
+                            page={currentPage - 1}
+                            onPageChange={(event, page) => {
+                                updatePageList(page +1)
+                                fetchPeople()
+                            }}
                         />
                     </TableRow>
                 </TableFooter>
